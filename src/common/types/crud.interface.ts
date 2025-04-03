@@ -1,7 +1,7 @@
 export interface ICrud<ENTITY> {
     create: (entity: ENTITY) => Promise<ENTITY>;
-    deleteByUUID: (uuid: string) => Promise<boolean>;
+    deleteById: (id: string) => Promise<boolean>;
     findByCriteria: (entity: Partial<ENTITY>) => Promise<ENTITY[]>;
-    findByUUID: (uuid: string) => Promise<ENTITY | null>;
+    findById: (id: string) => Promise<ENTITY | null>;
     update: (entity: ENTITY) => Promise<ENTITY | null>;
 }

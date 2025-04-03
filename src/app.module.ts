@@ -5,10 +5,12 @@ import { ClsPluginTransactional } from '@nestjs-cls/transactional';
 import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 
-import { validateEnvConfig } from './common/utils/validate-env-config';
-import { PrismaService } from './common/database/prisma.service';
-import { configSchema, Env } from './common/config/app-config';
-import { PrismaModule } from './common/database';
+import { validateEnvConfig } from '@common/utils/validate-env-config';
+import { PrismaService } from '@common/database/prisma.service';
+import { configSchema, Env } from '@common/config/app-config';
+import { PrismaModule } from '@common/database';
+
+import { DelementaVpnModules } from '@modules/delementa-vpn.modules';
 
 @Module({
     imports: [
@@ -30,6 +32,7 @@ import { PrismaModule } from './common/database';
             global: true,
             middleware: { mount: true },
         }),
+        DelementaVpnModules,
     ],
     controllers: [],
     providers: [],
