@@ -1,0 +1,29 @@
+import { z } from 'zod';
+
+import { REST_API } from '../../api';
+
+export namespace RegisterCommand {
+    export const url = REST_API.AUTH.REGISTER;
+    export const TSQ_url = url;
+
+    export const RequestSchema = z.object({
+        username: z.string(),
+        password: z
+            .string()
+            .min(8, 'Password must contain at least 8 characters')
+            .regex(
+                /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/,
+                'Password must contain uppercase and lowercase letters and numbers',
+            ),
+    });
+
+    export type Request = z.infer<typeof RequestSchema>;
+
+    export const ResponseSchema = z.object({
+        response: z.object({
+            accessToken: z.string(),
+        }),
+    });
+
+    export type Response = z.infer<typeof ResponseSchema>;
+}

@@ -4,18 +4,46 @@
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "ES2023",
+    "target": "es2020",
     "sourceMap": true,
+    "resolveJsonModule": true,
     "outDir": "./dist",
     "baseUrl": "./",
+    "paths": {
+      "@common/*": [
+        "./src/common/*"
+      ],
+      "@integration-modules/*": [
+        "./src/integration-modules/*"
+      ],
+      "@modules/*": [
+        "./src/modules/*"
+      ],
+      "@libs/contracts/*": [
+        "./libs/contract/*"
+      ],
+      "@contract/*": [
+        "./libs/contract/*"
+      ],
+      "@queue/*": [
+        "./src/queue/*"
+      ],
+      "@scheduler/*": [
+        "./src/scheduler/*"
+      ]
+    },
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitAny": false,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "useDefineForClassFields": true
   }
 }
